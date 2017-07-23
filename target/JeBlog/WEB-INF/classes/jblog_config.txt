@@ -1,0 +1,5 @@
+devMode = true
+
+jdbcUrl = jdbc:mysql://127.0.0.1/jeblog?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = root
+password = 123456
