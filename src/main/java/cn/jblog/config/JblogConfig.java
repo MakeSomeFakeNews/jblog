@@ -31,6 +31,7 @@ public class JblogConfig extends JFinalConfig {
 		PropKit.use("jblog_config.txt");
 		me.setDevMode(PropKit.getBoolean("devMode", false));
 		me.setViewType(ViewType.JFINAL_TEMPLATE);
+		me.setError404View("/404.html");
 	}
 
 	/**
