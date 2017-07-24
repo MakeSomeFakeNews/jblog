@@ -10,12 +10,16 @@ import com.jfinal.core.JFinal;
 import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
+import com.jfinal.plugin.activerecord.Db;
+import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.druid.DruidPlugin;
+import com.jfinal.plugin.ehcache.CacheKit;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
 
 import cn.jblog.common.model._MappingKit;
+import cn.jblog.mvc.admin.system.ConfUtils;
 import cn.jblog.route.AdminRoutes;
 import cn.jblog.route.FrontRoutes;
 
@@ -77,7 +81,8 @@ public class JblogConfig extends JFinalConfig {
 	}
 
 	public void afterJFinalStart() {
-
+		Record record = Db.findFirst("select * from sys_config");
+		CacheKit.put("sysCache", "sys", record);
 	}
 
 	/**
@@ -90,6 +95,6 @@ public class JblogConfig extends JFinalConfig {
 
 	@Override
 	public void configEngine(Engine me) {
-
+		me.addSharedMethod(new ConfUtils());
 	}
 }

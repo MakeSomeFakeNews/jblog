@@ -10,7 +10,8 @@ public class AdminInterceptor implements Interceptor {
 
 	public void intercept(Invocation inv) {
 		Controller c = inv.getController();
-		String user = CacheKit.get("userCache", "userId");
+		String cookie = c.getCookie("uuid");
+		String user = CacheKit.get("userCache", cookie);
 		if (!StrKit.isBlank(user)) {
 			inv.invoke();
 		} else {

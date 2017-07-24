@@ -18,6 +18,15 @@ public abstract class BaseSysConfig<M extends BaseSysConfig<M>> extends Model<M>
 		return get("author");
 	}
 
+	public M setTitle(java.lang.String title) {
+		set("title", title);
+		return (M)this;
+	}
+
+	public java.lang.String getTitle() {
+		return get("title");
+	}
+
 	public M setKeywords(java.lang.String keywords) {
 		set("keywords", keywords);
 		return (M)this;

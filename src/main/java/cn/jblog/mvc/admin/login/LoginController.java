@@ -5,6 +5,7 @@ import com.jfinal.plugin.ehcache.CacheKit;
 
 import cn.jblog.common.model.User;
 import cn.jblog.mvc.admin.BaseController;
+import cn.jblog.utils.EncodeUtil;
 
 @Clear
 public class LoginController extends BaseController {
@@ -24,7 +25,7 @@ public class LoginController extends BaseController {
 			LoginService service = new LoginService();
 			User user = getModel(User.class);
 			if (service.verifyPassword(user)) {
-				CacheKit.put("userCache", "userId", user.getUsername());
+				setUserSession(user.getUsername());
 				renderSuccess();
 				return;
 			}
@@ -32,5 +33,12 @@ public class LoginController extends BaseController {
 			return;
 		}
 		renderError("验证码错误！");
+	}
+
+	public void setUserSession(String user_name) {
+		String key = EncodeUtil.convert(user_name);
+		// 设置一个cookie，有效时间 一天
+		setCookie("uuid", key, 86400);
+		CacheKit.put("userCache", key, user_name);
 	}
 }

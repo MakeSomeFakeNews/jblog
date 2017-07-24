@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>系统基本参数--layui后台管理模板</title>
+<title>系统基本参数--#(title())</title>
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -40,41 +40,41 @@
 				<tr>
 					<td>开发作者</td>
 					<td><input type="text" class="layui-input author"
-						value="#(sys.author)" name="sysconfig.author"
+						value="#(author())" name="sysconfig.author"
 						placeholder="请输入开发作者"></td>
 					<td>author</td>
 				</tr>
 				<tr>
 					<td>网站标题</td>
 					<td><input type="text" class="layui-input title"
-						value="#(sys.title)" name="sysconfig.title"
+						value="#(title())" name="sysconfig.title"
 						placeholder="请输入网站标题"></td>
 					<td>title</td>
 				</tr>
 				<tr>
 					<td>默认关键字</td>
 					<td><input type="text" class="layui-input keywords"
-						value="#(sys.keywords)" name="sysconfig.keywords"
+						value="#(keywords())" name="sysconfig.keywords"
 						placeholder="请输入默认关键字"></td>
 					<td>keywords</td>
 				</tr>
 				<tr>
 					<td>版权信息</td>
 					<td><input type="text" class="layui-input powerby"
-						value="#(sys.powerby)" name="sysconfig.powerby"
+						value="#(powerby())" name="sysconfig.powerby"
 						placeholder="请输入网站版权信息"></td>
 					<td>powerby</td>
 				</tr>
 				<tr>
 					<td>网站描述</td>
 					<td><textarea placeholder="请输入网站描述"
-							name="sysconfig.description" class="layui-textarea description">#(sys.description)</textarea></td>
+							name="sysconfig.description" class="layui-textarea description">#(description())</textarea></td>
 					<td>description</td>
 				</tr>
 				<tr>
 					<td>网站备案号</td>
 					<td><input type="text" class="layui-input record"
-						value="#(sys.record)" name="sysconfig.record"
+						value="#(record())" name="sysconfig.record"
 						placeholder="请输入网站备案号"></td>
 					<td>record</td>
 				</tr>

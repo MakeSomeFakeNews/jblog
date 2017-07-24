@@ -11,7 +11,8 @@ import cn.jblog.common.model.User;
 public class IndexController extends BaseController {
 	public void index() {
 		IndexService service = new IndexService();
-		String username = CacheKit.get("userCache", "userId");
+		String cookie = getCookie("uuid");
+		String username = CacheKit.get("userCache", cookie);
 		User user = service.getUser(username);
 		setAttr("user", user);
 		render("index.html");
