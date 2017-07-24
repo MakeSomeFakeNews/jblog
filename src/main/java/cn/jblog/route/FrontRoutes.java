@@ -7,7 +7,7 @@ import com.jfinal.config.Routes;
 * @version 创建时间：2017年7月23日 下午11:00:03 
 * 类说明 
 */
-public class FrontRoute extends Routes{
+public class FrontRoutes extends Routes{
 
 	@Override
 	public void config() {

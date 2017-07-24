@@ -1,7 +1,5 @@
 package cn.jblog.config;
 
-import javax.sql.DataSource;
-
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -17,8 +15,8 @@ import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
 
 import cn.jblog.common.model._MappingKit;
-import cn.jblog.route.AdminRoute;
-import cn.jblog.route.FrontRoute;
+import cn.jblog.route.AdminRoutes;
+import cn.jblog.route.FrontRoutes;
 
 /**
  * API引导式配置
@@ -39,8 +37,8 @@ public class JblogConfig extends JFinalConfig {
 	 * 配置路由
 	 */
 	public void configRoute(Routes me) {
-		me.add(new AdminRoute());
-		me.add(new FrontRoute());
+		me.add(new AdminRoutes());
+		me.add(new FrontRoutes());
 	}
 
 	public static DruidPlugin createDruidPlugin() {

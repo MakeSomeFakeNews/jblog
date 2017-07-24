@@ -18,22 +18,22 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("user_id");
 	}
 
-	public M setUserName(java.lang.String userName) {
-		set("user_name", userName);
+	public M setUsername(java.lang.String username) {
+		set("username", username);
 		return (M)this;
 	}
 
-	public java.lang.String getUserName() {
-		return get("user_name");
+	public java.lang.String getUsername() {
+		return get("username");
 	}
 
-	public M setUserPassword(java.lang.String userPassword) {
-		set("user_password", userPassword);
+	public M setPassword(java.lang.String password) {
+		set("password", password);
 		return (M)this;
 	}
 
-	public java.lang.String getUserPassword() {
-		return get("user_password");
+	public java.lang.String getPassword() {
+		return get("password");
 	}
 
 	public M setUserImage(java.lang.String userImage) {

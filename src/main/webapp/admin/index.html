@@ -11,9 +11,9 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="icon" href="favicon.ico">
-	<link rel="stylesheet" href="layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="/admin/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
-	<link rel="stylesheet" href="css/main.css" media="all" />
+	<link rel="stylesheet" href="/admin/css/main.css" media="all" />
 </head>
 <body class="main_body">
 	<div class="layui-layout layui-layout-admin">
@@ -86,8 +86,8 @@
 					</li>
 					<li class="layui-nav-item" pc>
 						<a href="javascript:;">
-							<img src="images/face.jpg" class="layui-circle" width="35" height="35">
-							<cite>请叫我马哥</cite>
+							<img src="#(user.UserImage)" class="layui-circle" width="35" height="35">
+							<cite>#(user.username)</cite>
 						</a>
 						<dl class="layui-nav-child">
 							<dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
@@ -102,8 +102,8 @@
 		<!-- 左侧导航 -->
 		<div class="layui-side layui-bg-black">
 			<div class="user-photo">
-				<a class="img" title="我的头像" ><img src="images/face.jpg"></a>
-				<p>你好！<span class="userName">请叫我马哥</span>, 欢迎登录</p>
+				<a class="img" title="我的头像" ><img src="#(user.UserImage)"></a>
+				<p>你好！<span class="userName">#(user.username)</span>, 欢迎登录</p>
 			</div>
 			<div class="navBar layui-side-scroll"></div>
 		</div>
@@ -124,7 +124,7 @@
 				</ul>
 				<div class="layui-tab-content clildFrame">
 					<div class="layui-tab-item layui-show">
-						<iframe src="page/main.html"></iframe>
+						<iframe src="/admin/main"></iframe>
 					</div>
 				</div>
 			</div>
@@ -139,8 +139,8 @@
 	<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 	<div class="site-mobile-shade"></div>
 
-	<script type="text/javascript" src="layui/layui.js"></script>
-	<script type="text/javascript" src="js/leftNav.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="/admin/layui/layui.js"></script>
+	<script type="text/javascript" src="/admin/js/leftNav.js"></script>
+	<script type="text/javascript" src="/admin/js/index.js"></script>
 </body>
 </html>
