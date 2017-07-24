@@ -4,15 +4,16 @@ import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StrKit;
+import com.jfinal.plugin.ehcache.CacheKit;
 
 public class AdminInterceptor implements Interceptor {
 
 	public void intercept(Invocation inv) {
 		Controller c = inv.getController();
-		String userid = c.getSessionAttr("userId");
-		if (!StrKit.isBlank(userid)) {
+		String user = CacheKit.get("userCache", "userId");
+		if (!StrKit.isBlank(user)) {
 			inv.invoke();
-		}else {
+		} else {
 			c.render("/admin/page/login/login.html");
 		}
 	}

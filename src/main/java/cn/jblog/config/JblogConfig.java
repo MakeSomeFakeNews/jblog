@@ -11,6 +11,7 @@ import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
+import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
 
@@ -57,6 +58,7 @@ public class JblogConfig extends JFinalConfig {
 		// 所有映射在 MappingKit 中自动化搞定
 		_MappingKit.mapping(arp);
 		me.add(arp);
+		me.add(new EhCachePlugin());
 	}
 
 	/**
@@ -74,8 +76,8 @@ public class JblogConfig extends JFinalConfig {
 		// me.add(new FakeStaticHandler());
 	}
 
-	@Override
 	public void afterJFinalStart() {
+
 	}
 
 	/**

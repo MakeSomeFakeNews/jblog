@@ -6,6 +6,7 @@ import cn.jblog.mvc.admin.AdminInterceptor;
 import cn.jblog.mvc.admin.IndexController;
 import cn.jblog.mvc.admin.article.BlogController;
 import cn.jblog.mvc.admin.login.LoginController;
+import cn.jblog.mvc.admin.system.SystemConfigController;
 
 /**
  * @author 作者 E-mail: 1239181712@qq.com
@@ -20,6 +21,7 @@ public class AdminRoutes extends Routes {
 		add("/admin", IndexController.class, "/");
 		add("/admin/article", BlogController.class, "/page/news");
 		add("/admin/login", LoginController.class, "/page/login");
+		add("/admin/sys", SystemConfigController.class, "/page/systemParameter");
 	}
 
 }

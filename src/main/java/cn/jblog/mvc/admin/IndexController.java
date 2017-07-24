@@ -1,5 +1,7 @@
 package cn.jblog.mvc.admin;
 
+import com.jfinal.plugin.ehcache.CacheKit;
+
 import cn.jblog.common.model.User;
 
 /**
@@ -9,7 +11,8 @@ import cn.jblog.common.model.User;
 public class IndexController extends BaseController {
 	public void index() {
 		IndexService service = new IndexService();
-		User user = service.getUser(getSessionAttr("userId").toString());
+		String username = CacheKit.get("userCache", "userId");
+		User user = service.getUser(username);
 		setAttr("user", user);
 		render("index.html");
 	}

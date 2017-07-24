@@ -19,6 +19,7 @@ public class _MappingKit {
 		arp.addMapping("art_stat", "tid", ArtStat.class);
 		arp.addMapping("art_type", "id", ArtType.class);
 		arp.addMapping("blog", "tid", Blog.class);
+		arp.addMapping("sys_config", "author", SysConfig.class);
 		arp.addMapping("user", "user_id", User.class);
 		arp.addMapping("user_info", "user_id", UserInfo.class);
 	}

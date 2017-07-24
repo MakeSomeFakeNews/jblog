@@ -1,9 +1,11 @@
 package cn.jblog.mvc.admin.login;
 
 import com.jfinal.aop.Clear;
+import com.jfinal.plugin.ehcache.CacheKit;
 
 import cn.jblog.common.model.User;
 import cn.jblog.mvc.admin.BaseController;
+
 @Clear
 public class LoginController extends BaseController {
 	public void index() {
@@ -22,7 +24,7 @@ public class LoginController extends BaseController {
 			LoginService service = new LoginService();
 			User user = getModel(User.class);
 			if (service.verifyPassword(user)) {
-				setSessionAttr("userId", user.getUsername());
+				CacheKit.put("userCache", "userId", user.getUsername());
 				renderSuccess();
 				return;
 			}
