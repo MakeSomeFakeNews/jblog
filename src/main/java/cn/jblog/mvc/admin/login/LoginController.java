@@ -25,7 +25,7 @@ public class LoginController extends BaseController {
 			LoginService service = new LoginService();
 			User user = getModel(User.class);
 			if (service.verifyPassword(user)) {
-				setUserSession(user.getUsername());
+				setSessionAttr("userId", user.getUsername());
 				renderSuccess();
 				return;
 			}

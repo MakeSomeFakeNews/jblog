@@ -10,7 +10,7 @@ import cn.jblog.common.model.ArtType;
  */
 public class BlogService {
 	public List<ArtType> getArtType() {
-		List<ArtType> list = ArtType.dao.findByCache("artCache", "type", "select * from art_type");
+		List<ArtType> list = ArtType.dao.find("select * from art_type");
 		return list;
 	}
 }

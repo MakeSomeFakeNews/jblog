@@ -7,14 +7,10 @@ import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
-import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.activerecord.Db;
-import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.druid.DruidPlugin;
-import com.jfinal.plugin.ehcache.CacheKit;
-import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
 
@@ -62,14 +58,13 @@ public class JblogConfig extends JFinalConfig {
 		// 所有映射在 MappingKit 中自动化搞定
 		_MappingKit.mapping(arp);
 		me.add(arp);
-		me.add(new EhCachePlugin());
+		//me.add(new EhCachePlugin());
 	}
 
 	/**
 	 * 配置全局拦截器
 	 */
 	public void configInterceptor(Interceptors me) {
-		me.add(new SessionInViewInterceptor());
 
 	}
 
@@ -81,8 +76,7 @@ public class JblogConfig extends JFinalConfig {
 	}
 
 	public void afterJFinalStart() {
-		Record record = Db.findFirst("select * from sys_config");
-		CacheKit.put("sysCache", "sys", record);
+		JFinal.me().getServletContext().setAttribute("sys", Db.findFirst("select * from sys_config"));
 	}
 
 	/**

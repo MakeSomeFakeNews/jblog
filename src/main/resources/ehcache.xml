@@ -17,7 +17,7 @@
 		
 	<cache name="userCache" maxEntriesLocalHeap="10000"
 		maxEntriesLocalDisk="1000" eternal="false" overflowToDisk="true"
-		diskSpoolBufferSizeMB="20" timeToIdleSeconds="1800" timeToLiveSeconds="1800"
+		diskSpoolBufferSizeMB="20" timeToIdleSeconds="180" timeToLiveSeconds="1800"
 		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
 
 </ehcache>  
