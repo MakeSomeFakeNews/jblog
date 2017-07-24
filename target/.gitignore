@@ -1,2 +1,6 @@
 /classes/
 /test-classes/
+/.gitignore
+/JeBlog.war
+/JeBlog/
+/maven-archiver/
