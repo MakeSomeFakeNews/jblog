@@ -2,6 +2,7 @@ package cn.jblog.mvc.admin.article;
 
 import java.util.List;
 
+import com.jfinal.kit.Kv;
 import com.jfinal.plugin.activerecord.Record;
 
 import cn.jblog.common.model.ArtType;
@@ -18,7 +19,7 @@ public class BlogController extends BaseController {
 	public void index() {
 		List<Record> articleList = service.getArticleList();
 		setAttr("article", articleList);
-		render("newsList.html");
+		render("articleList.html");
 	}
 
 	public void addArticlePage() {
@@ -39,10 +40,13 @@ public class BlogController extends BaseController {
 		}
 		renderError();
 	}
-	
+
 	public void getAtricleList() {
 		List<Record> articleList = service.getArticleList();
-		setAttr("article", articleList);
-		render("newsList.html");
+		Kv kv = Kv.by("code", 0);
+		kv.set("msg", "");
+		kv.set("count", articleList.size());
+		kv.set("data", articleList);
+		renderJson(kv);
 	}
 }
