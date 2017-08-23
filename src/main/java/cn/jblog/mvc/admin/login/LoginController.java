@@ -9,6 +9,8 @@ import cn.jblog.utils.EncodeUtil;
 
 @Clear
 public class LoginController extends BaseController {
+	static LoginService service = LoginService.me;
+
 	public void index() {
 		render("login.html");
 	}
@@ -20,9 +22,7 @@ public class LoginController extends BaseController {
 
 	public void login() {
 		boolean result = validateCaptcha("code");
-		System.out.println(result);
 		if (result) {
-			LoginService service = new LoginService();
 			User user = getModel(User.class);
 			if (service.verifyPassword(user)) {
 				setSessionAttr("userId", user.getUsername());

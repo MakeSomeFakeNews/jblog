@@ -7,8 +7,9 @@ import cn.jblog.common.model.User;
  * @version 创建时间：2017年7月23日 下午10:55:11 类说明
  */
 public class IndexController extends BaseController {
+	static IndexService service = IndexService.me;
+
 	public void index() {
-		IndexService service = new IndexService();
 		String username = getSessionAttr("userId");
 		User user = service.getUser(username);
 		setAttr("user", user);

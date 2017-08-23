@@ -15,7 +15,6 @@ import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
 
 import cn.jblog.common.model._MappingKit;
-import cn.jblog.mvc.admin.system.ConfUtils;
 import cn.jblog.route.AdminRoutes;
 import cn.jblog.route.FrontRoutes;
 
@@ -58,7 +57,7 @@ public class JblogConfig extends JFinalConfig {
 		// 所有映射在 MappingKit 中自动化搞定
 		_MappingKit.mapping(arp);
 		me.add(arp);
-		//me.add(new EhCachePlugin());
+		// me.add(new EhCachePlugin());
 	}
 
 	/**
@@ -89,6 +88,5 @@ public class JblogConfig extends JFinalConfig {
 
 	@Override
 	public void configEngine(Engine me) {
-		me.addSharedMethod(new ConfUtils());
 	}
 }

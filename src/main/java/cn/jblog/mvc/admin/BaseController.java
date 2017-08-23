@@ -2,7 +2,7 @@ package cn.jblog.mvc.admin;
 
 import com.jfinal.core.Controller;
 
-import cn.jblog.mvc.vo.RenderBean;
+import cn.jblog.mvc.vo.Ret;
 
 /** 
 * @author 作者 E-mail: 1239181712@qq.com
@@ -11,13 +11,13 @@ import cn.jblog.mvc.vo.RenderBean;
 */
 public class BaseController extends Controller {
 	public void renderSuccess(){
-		renderJson(new RenderBean(1,null));
+		renderJson(new Ret(1,null));
 	}
 	public void renderError(){
-		renderJson(new RenderBean(1,null));
+		renderJson(new Ret(1,null));
 	}
 	public void renderError(String msg){
-		renderJson(new RenderBean(0,msg));
+		renderJson(new Ret(0,msg));
 	}
 }
  

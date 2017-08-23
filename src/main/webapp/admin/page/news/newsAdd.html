@@ -9,11 +9,12 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="/admin/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="/resource/layui/css/layui.css" media="all" />
 	
 </head>
 <body class="childrenBody">
 	<form class="layui-form" action="/admin/article/addArticle" method="post">
+		<input name="blog.user_id" value="#(user_id)" type="hidden">
 		<div class="layui-form-item">
 			<label class="layui-form-label">文章标题</label>
 			<div class="layui-input-block">
@@ -36,7 +37,7 @@
 			<div class="layui-inline">		
 				<label class="layui-form-label">发布时间</label>
 				<div class="layui-input-inline">
-					<input type="text" class="layui-input newsTime" name="blog.create_time" lay-verify="required|date" onclick="layui.laydate({elem:this})">
+					<input type="text" class="layui-input newsTime" name="blog.create_time" lay-verify="required|date" onclick="layui.laydate.render({elem:this})">
 				</div>
 			</div>
 			<div class="layui-inline">		
@@ -48,7 +49,7 @@
 			<div class="layui-inline">
 				<label class="layui-form-label">文章分类</label>
 				<div class="layui-input-inline">
-					<select name="art_type" name="blog.art_type" class="art_type" lay-filter="browseLook">
+					<select  name="blog.type" class="art_type" lay-filter="browseLook">
 				        #for(item:type)
 				        <option value="#(item.id)">#(item.name)</option>
 				        #end
@@ -100,7 +101,7 @@
 		</div>
 	</form>
 </body>
-	<script type="text/javascript" src="/admin/layui/layui.js"></script>
+	<script type="text/javascript" src="/resource/layui/layui.js"></script>
 	<script type="text/javascript" src="/admin/page/news/newsAdd.js"></script>
 	<!-- 配置文件 -->
     <script type="text/javascript" src="/admin/utf8-jsp/ueditor.config.js"></script>

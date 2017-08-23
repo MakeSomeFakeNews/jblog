@@ -2,6 +2,8 @@ package cn.jblog.mvc.admin.article;
 
 import java.util.List;
 
+import com.jfinal.plugin.activerecord.Record;
+
 import cn.jblog.common.model.ArtType;
 import cn.jblog.common.model.Blog;
 import cn.jblog.mvc.admin.BaseController;
@@ -11,14 +13,20 @@ import cn.jblog.mvc.admin.BaseController;
  * @version 创建时间：2017年7月23日 下午10:57:44 类说明
  */
 public class BlogController extends BaseController {
+	static BlogService service = BlogService.me;
+
 	public void index() {
+		List<Record> articleList = service.getArticleList();
+		setAttr("article", articleList);
 		render("newsList.html");
 	}
 
 	public void addArticlePage() {
-		BlogService service = new BlogService();
 		List<ArtType> artType = service.getArtType();
 		setAttr("type", artType);
+		String userId = getSessionAttr("userId");
+		Integer id = service.getUserId(userId);
+		setAttr("user_id", id);
 		render("newsAdd.html");
 	}
 
@@ -30,5 +38,11 @@ public class BlogController extends BaseController {
 			return;
 		}
 		renderError();
+	}
+	
+	public void getAtricleList() {
+		List<Record> articleList = service.getArticleList();
+		setAttr("article", articleList);
+		render("newsList.html");
 	}
 }

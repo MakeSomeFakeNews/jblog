@@ -5,6 +5,9 @@ import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StrKit;
 
+/**
+ * 拦截后台登录
+ */
 public class AdminInterceptor implements Interceptor {
 
 	public void intercept(Invocation inv) {

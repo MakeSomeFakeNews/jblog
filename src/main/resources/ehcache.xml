@@ -4,20 +4,41 @@
 	monitoring="autodetect" dynamicConfig="true">
 
 	<diskStore path="java.io.tmpdir" />
+	
+	
+	<defaultCache
+			maxEntriesLocalHeap="10000"
+			eternal="false"
+			timeToIdleSeconds="120"
+			timeToLiveSeconds="120"
 
-	<cache name="artCache" maxEntriesLocalHeap="10000"
-		maxEntriesLocalDisk="1000" eternal="false" overflowToDisk="true"
-		diskSpoolBufferSizeMB="20" timeToIdleSeconds="300" timeToLiveSeconds="100"
-		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+			diskSpoolBufferSizeMB="30"
+			maxEntriesLocalDisk="10000000"
+			diskExpiryThreadIntervalSeconds="120"
+			memoryStoreEvictionPolicy="LRU"
+			statistics="false">
+		<persistence strategy="localTempSwap"/>
+	</defaultCache>
+	
+	<!-- 用于缓存文章 -->
+	 <cache name="index" 
+		  maxEntriesLocalHeap="90000"
+	      eternal="true"
+	      overflowToDisk="false"
+			 />
 
-	<cache name="sysCache" maxEntriesLocalHeap="5"
-		maxEntriesLocalDisk="1000" eternal="true" overflowToDisk="true"
-		diskSpoolBufferSizeMB="20" timeToIdleSeconds="300" timeToLiveSeconds="100"
-		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
-		
-	<cache name="userCache" maxEntriesLocalHeap="10000"
-		maxEntriesLocalDisk="1000" eternal="false" overflowToDisk="true"
-		diskSpoolBufferSizeMB="20" timeToIdleSeconds="180" timeToLiveSeconds="1800"
-		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+	<cache 
+		  name="System" 
+		  maxEntriesLocalHeap="90000"
+	      eternal="true"
+	      overflowToDisk="false"
+	 />
+
+	<cache name="loginAccount" 
+		   maxEntriesLocalHeap="90000"
+           eternal="false"
+           timeToIdleSeconds="1800"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"/>
 
 </ehcache>  
